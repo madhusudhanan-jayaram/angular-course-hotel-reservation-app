@@ -1,0 +1,22 @@
+
+<div class="container">
+
+  <form>
+    <label for="title">Title:</label>
+    <input type="text" id="title" [(ngModel)]="newBookTitle" name="title" required>
+
+    <label for="author">Author:</label>
+    <input type="text" id="author" [(ngModel)]="newAuthor" name="author" required>
+
+    <button type="submit" (click)="addBook()">Add Book</button>
+  </form>
+  <ul>
+    @for (book of books; track book.title) {
+      <li>
+        {{ book.title }} by {{ book.author }}
+        <button class="btn btn-sm btn-danger mx-1"  (click)="deleteBook(book.id)">Delete</button>
+      </li>
+    }
+  </ul>
+</div>
+
